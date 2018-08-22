@@ -1,6 +1,4 @@
 //Obstacle Avoiding robot
-//Praveen Sridhar 
-//psbots.blogspot.com
 const int left=1,mid=2,right=3;
 const int i1=8,i2=10,ea=9,i3=5,i4=7,eb=6;
 const int cthres=600,rthres=600,lthres=600;
