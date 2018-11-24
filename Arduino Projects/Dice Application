@@ -1,1 +1,119 @@
+// Digital Dice 7 Segment Display
 
+int buttonDice = 10;
+int buttondiceValue = 0;
+int leda = 2;
+int ledb = 3;
+int ledpt = 4;
+int ledc = 5;
+int ledd = 6;
+int lede = 7;
+int ledf = 8;
+int ledg = 9;
+int randNummer = 0;
+
+
+
+
+
+void setup(){
+  pinMode(buttonDice, INPUT);
+  pinMode(leda, OUTPUT);
+  pinMode(ledb, OUTPUT);
+  pinMode(ledpt, OUTPUT);
+  pinMode(ledc, OUTPUT);
+  pinMode(ledd, OUTPUT);
+  pinMode(lede, OUTPUT);
+  pinMode(ledf, OUTPUT);
+  pinMode(ledg, OUTPUT);
+  
+}
+void loop(){
+  buttondiceValue =  digitalRead(buttonDice);
+  if(buttondiceValue == HIGH){
+
+    digitalWrite(leda, LOW);  digitalWrite(ledb, LOW); digitalWrite(ledpt, LOW);  digitalWrite(ledc, LOW);  digitalWrite(ledd, LOW);
+    digitalWrite(lede, LOW);  digitalWrite(ledf, LOW);  digitalWrite(ledg, LOW);
+
+    delay(500);
+
+    digitalWrite(leda, HIGH);  digitalWrite(ledb, HIGH);  digitalWrite(ledc, LOW);  digitalWrite(ledd, LOW);  digitalWrite(lede, LOW); 
+    digitalWrite(ledf, LOW);  digitalWrite(ledg, LOW); 
+
+    delay(150);
+
+    digitalWrite(leda, LOW);  digitalWrite(ledb, HIGH);  digitalWrite(ledc, LOW);  digitalWrite(ledd, LOW);  digitalWrite(lede, LOW);                    
+    digitalWrite(ledf, LOW);  digitalWrite(ledg, HIGH);
+
+    delay(150);
+
+    digitalWrite(leda, LOW);  digitalWrite(ledb, LOW);  digitalWrite(ledc, LOW);  digitalWrite(ledd, LOW);  digitalWrite(lede, HIGH); 
+    digitalWrite(ledf, LOW);  digitalWrite(ledg, HIGH);
+
+    delay(150);
+
+    digitalWrite(leda, LOW);  digitalWrite(ledb, LOW);  digitalWrite(ledc, LOW);  digitalWrite(ledd, HIGH);  digitalWrite(lede, HIGH);  
+    digitalWrite(ledf, LOW);  digitalWrite(ledg, LOW);
+
+    delay(150);
+
+    digitalWrite(leda, LOW);  digitalWrite(ledb, LOW);  digitalWrite(ledc, HIGH);  digitalWrite(ledd, HIGH);  digitalWrite(lede, LOW);  
+    digitalWrite(ledf, LOW);  digitalWrite(ledg, LOW);
+
+    delay(150);
+
+    digitalWrite(leda, LOW);  digitalWrite(ledb, LOW);  digitalWrite(ledc, HIGH);  digitalWrite(ledd, LOW);  digitalWrite(lede, LOW);  
+    digitalWrite(ledf, LOW);  digitalWrite(ledg, HIGH);
+
+    delay(150);
+
+    digitalWrite(leda, LOW);  digitalWrite(ledb, LOW);  digitalWrite(ledc, LOW);  digitalWrite(ledd, LOW);  digitalWrite(lede, LOW);
+    digitalWrite(ledf, HIGH);  digitalWrite(ledg, HIGH);
+
+    delay(150);
+
+    digitalWrite(leda, HIGH);  digitalWrite(ledb, LOW);  digitalWrite(ledc, LOW);  digitalWrite(ledd, LOW);  digitalWrite(lede, LOW); 
+    digitalWrite(ledf, HIGH);  digitalWrite(ledg, LOW);
+
+    delay(150);
+
+    digitalWrite(leda, HIGH); digitalWrite(ledf, LOW);
+
+    delay(150);
+
+    digitalWrite(leda, LOW);
+
+    delay(500);
+
+    randomSeed(millis());
+    randNummer = random(255);
+
+    //NUMBER = 1
+    if(randNummer < 42){
+      digitalWrite(ledb, HIGH); digitalWrite(ledc, HIGH);
+    }
+    //NUMBER = 2
+    if(randNummer >= 42 && randNummer <= 85){
+      digitalWrite(leda, HIGH); digitalWrite(ledb, HIGH); digitalWrite(ledg, HIGH); digitalWrite(lede, HIGH); digitalWrite(ledd, HIGH);
+    }  
+    //NUMBER = 3
+    if(randNummer > 85 && randNummer <= 127){
+      digitalWrite(leda, HIGH); digitalWrite(ledb, HIGH); digitalWrite(ledg, HIGH); digitalWrite(ledc, HIGH); digitalWrite(ledd, HIGH);
+    }
+    //NUMBER = 4
+    if(randNummer > 127 && randNummer <=170){
+      digitalWrite(ledb, HIGH); digitalWrite(ledg, HIGH); digitalWrite(ledf, HIGH); digitalWrite(ledc, HIGH);
+    }
+    //NUMBER = 5
+    if(randNummer >170 && randNummer <= 212){
+      digitalWrite(leda,HIGH); digitalWrite(ledf, HIGH); digitalWrite(ledg, HIGH); digitalWrite(ledc,HIGH); digitalWrite(ledd, HIGH);
+    }
+    //NUMBER = 6
+    if(randNummer >212 && randNummer <= 255){
+      digitalWrite(leda, HIGH); digitalWrite(ledf, HIGH); digitalWrite(ledg, HIGH); digitalWrite(ledc, HIGH); digitalWrite(ledd, HIGH); 
+      digitalWrite(lede, HIGH); digitalWrite(ledpt, HIGH);
+    }
+    
+    
+    }
+}
